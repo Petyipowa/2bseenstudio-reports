@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sindler Reptiles — Meta Ads Riport | 2026. március–április</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600;700&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <style>
+        :root {
+            --bg-deep: #0a0514;
+            --bg-mid: #0f1728;
+            --bg-section: #130d24;
+            --purple: #6e61ff;
+            --purple-light: #dad6ff;
+            --purple-glow: rgba(110,97,255,.25);
+            --purple-bg: #f7f5ff;
+            --lime: #f2ff61;
+            --lime-dim: rgba(242,255,97,.12);
+            --lime-glow: rgba(242,255,97,.3);
+            --glass: rgba(255,255,255,.06);
+            --glass-border: rgba(255,255,255,.1);
+            --glass-strong: rgba(255,255,255,.09);
+            --text: #f0eeff;
+            --text-secondary: #b8b2d4;
+            --text-muted: #7a7494;
+            --green: #4ade80;
+            --green-dim: rgba(74,222,128,.12);
+            --red: #f87171;
+            --shadow-card: 0 .8px 2.4px -.625px rgba(0,0,0,.18), 0 2.4px 7.2px -1.25px rgba(0,0,0,.16), 0 6.4px 19px -1.875px rgba(0,0,0,.1), 0 20px 60px -2.5px rgba(0,0,0,.08);
+            --shadow-glow: 0 0 60px rgba(110,97,255,.15), 0 0 120px rgba(110,97,255,.05);
+            --radius: 24px;
+            --radius-sm: 16px;
+            --radius-xs: 10px;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            background: var(--bg-deep);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ── Animated background ── */
+        .bg-glow {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        .bg-glow::before {
+            content: '';
+            position: absolute;
+            width: 800px; height: 800px;
+            top: -200px; right: -200px;
+            background: radial-gradient(circle, rgba(110,97,255,.12) 0%, transparent 70%);
+            animation: floatGlow 20s ease-in-out infinite alternate;
+        }
+        .bg-glow::after {
+            content: '';
+            position: absolute;
+            width: 600px; height: 600px;
+            bottom: -100px; left: -100px;
+            background: radial-gradient(circle, rgba(242,255,97,.06) 0%, transparent 70%);
+            animation: floatGlow 25s ease-in-out infinite alternate-reverse;
+        }
+        @keyframes floatGlow {
+            0% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(80px, -60px) scale(1.15); }
+            100% { transform: translate(-40px, 40px) scale(0.95); }
+        }
+
+        .page-wrapper { position: relative; z-index: 1; }
+
+        /* ── Hero / Header ── */
+        .hero {
+            background: linear-gradient(180deg, rgba(28,0,51,.8) 0%, var(--bg-deep) 100%);
+            padding: 60px 0 48px;
+            position: relative;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--purple), var(--lime), var(--purple), transparent);
+            opacity: .5;
+        }
+        .hero-inner {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 8px 18px;
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--lime);
+            letter-spacing: .5px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+        .hero-badge .dot {
+            width: 6px; height: 6px;
+            background: var(--lime);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: .3; } }
+
+        .hero h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(32px, 5vw, 52px);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -1.5px;
+            margin-bottom: 8px;
+        }
+        .hero h1 .brand { color: var(--purple-light); }
+        .hero h1 .accent {
+            background: linear-gradient(135deg, var(--lime) 0%, #a8ff61 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-sub {
+            font-size: 15px;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+        .hero-meta {
+            display: flex;
+            gap: 24px;
+            margin-top: 32px;
+            flex-wrap: wrap;
+        }
+        .hero-meta-item {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(12px);
+            border-radius: var(--radius-sm);
+            padding: 16px 24px;
+            min-width: 180px;
+        }
+        .hero-meta-item .hm-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: .8px;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+        .hero-meta-item .hm-value {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 22px;
+            font-weight: 700;
+            margin-top: 4px;
+        }
+
+        .container { max-width: 1120px; margin: 0 auto; padding: 0 32px; }
+
+        /* ── Sections ── */
+        .section { padding: 48px 0; }
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--purple);
+            margin-bottom: 12px;
+        }
+        .section-label::before {
+            content: '';
+            width: 20px;
+            height: 2px;
+            background: var(--purple);
+            border-radius: 1px;
+        }
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(24px, 3vw, 36px);
+            font-weight: 700;
+            letter-spacing: -.8px;
+            margin-bottom: 32px;
+        }
+
+        /* ── Glass cards ── */
+        .glass-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-card);
+            overflow: hidden;
+            position: relative;
+        }
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,.15), transparent);
+        }
+
+        /* ── Big KPI row ── */
+        .kpi-hero-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .kpi-hero {
+            padding: 36px;
+            position: relative;
+        }
+        .kpi-hero .kpi-icon {
+            width: 48px; height: 48px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+            margin-bottom: 16px;
+        }
+        .kpi-hero .kpi-label {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 6px;
+        }
+        .kpi-hero .kpi-value {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 38px;
+            font-weight: 700;
+            letter-spacing: -1px;
+            line-height: 1.1;
+        }
+        .kpi-hero .kpi-sub {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 8px;
+        }
+        .kpi-hero.revenue {
+            background: linear-gradient(135deg, rgba(110,97,255,.1) 0%, rgba(242,255,97,.05) 100%);
+            border-color: rgba(110,97,255,.25);
+        }
+        .kpi-hero.revenue::after {
+            content: '';
+            position: absolute;
+            top: -40px; right: -40px;
+            width: 160px; height: 160px;
+            background: radial-gradient(circle, var(--purple-glow) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .kpi-hero.revenue .kpi-icon { background: var(--purple-glow); }
+        .kpi-hero.revenue .kpi-value { color: var(--purple-light); }
+
+        .kpi-hero.roas {
+            background: linear-gradient(135deg, rgba(242,255,97,.06) 0%, rgba(74,222,128,.04) 100%);
+            border-color: rgba(242,255,97,.2);
+        }
+        .kpi-hero.roas::after {
+            content: '';
+            position: absolute;
+            top: -40px; right: -40px;
+            width: 160px; height: 160px;
+            background: radial-gradient(circle, var(--lime-glow) 0%, transparent 70%);
+            pointer-events: none;
+        }
+        .kpi-hero.roas .kpi-icon { background: var(--lime-dim); }
+        .kpi-hero.roas .kpi-value { color: var(--lime); }
+
+        /* ── Small KPI grid ── */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+            gap: 16px;
+            margin-bottom: 48px;
+        }
+        .kpi-sm {
+            padding: 24px;
+        }
+        .kpi-sm .kpi-label {
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+        .kpi-sm .kpi-value {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -.5px;
+        }
+        .kpi-sm .kpi-sub {
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 4px;
+        }
+
+        /* ── Funnel ── */
+        .funnel-wrap {
+            padding: 40px;
+            margin-bottom: 48px;
+        }
+        .funnel-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 32px;
+        }
+        .funnel {
+            display: flex;
+            align-items: stretch;
+            gap: 0;
+        }
+        .funnel-step {
+            flex: 1;
+            text-align: center;
+            padding: 28px 12px;
+            position: relative;
+            background: linear-gradient(180deg, rgba(110,97,255,.06) 0%, transparent 100%);
+            border-right: 1px solid var(--glass-border);
+        }
+        .funnel-step:last-child { border-right: none; }
+        .funnel-step:first-child { border-radius: var(--radius-sm) 0 0 var(--radius-sm); }
+        .funnel-step:last-child { border-radius: 0 var(--radius-sm) var(--radius-sm) 0; }
+        .funnel-step .f-num {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .funnel-step .f-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+        .funnel-step .f-rate {
+            position: absolute;
+            right: -18px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--bg-deep);
+            border: 1px solid var(--purple);
+            color: var(--purple-light);
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 10px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 20px;
+            z-index: 2;
+            white-space: nowrap;
+        }
+        .funnel-step:last-child .f-num { color: var(--lime); }
+        .funnel-step:last-child {
+            background: linear-gradient(180deg, rgba(242,255,97,.08) 0%, transparent 100%);
+        }
+
+        /* ── Chart cards ── */
+        .chart-wrap {
+            padding: 36px;
+            margin-bottom: 24px;
+        }
+        .chart-wrap h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        /* ── Campaign cards ── */
+        .campaign-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+            margin-bottom: 48px;
+        }
+        .campaign-card {
+            padding: 32px;
+            transition: transform .2s, border-color .2s;
+        }
+        .campaign-card:hover {
+            transform: translateY(-2px);
+            border-color: rgba(255,255,255,.15);
+        }
+        .campaign-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 14px;
+            border-radius: 100px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+        .tag-aw { background: rgba(59,130,246,.12); color: #60a5fa; border: 1px solid rgba(59,130,246,.2); }
+        .tag-en { background: rgba(110,97,255,.12); color: var(--purple-light); border: 1px solid rgba(110,97,255,.2); }
+        .tag-sa { background: var(--green-dim); color: var(--green); border: 1px solid rgba(74,222,128,.2); }
+
+        .campaign-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .campaign-card .c-desc {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        .c-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        .c-stat .cs-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+        .c-stat .cs-value {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 20px;
+            font-weight: 700;
+        }
+        .c-stat .cs-value.lime { color: var(--lime); }
+        .c-stat .cs-value.purple { color: var(--purple-light); }
+        .c-stat .cs-value.green { color: var(--green); }
+
+        .campaign-card .c-roas-bar {
+            margin-top: 20px;
+            padding-top: 16px;
+            border-top: 1px solid var(--glass-border);
+        }
+        .c-roas-bar .roas-label {
+            font-size: 11px;
+            color: var(--text-muted);
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .c-roas-bar .roas-track {
+            height: 8px;
+            background: rgba(255,255,255,.05);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .c-roas-bar .roas-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 1s ease;
+        }
+
+        /* ── Summary blocks ── */
+        .summary-card {
+            padding: 40px;
+            margin-bottom: 24px;
+        }
+        .summary-card h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .summary-card ul { list-style: none; }
+        .summary-card li {
+            padding: 12px 0 12px 28px;
+            position: relative;
+            font-size: 14px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--glass-border);
+        }
+        .summary-card li:last-child { border-bottom: none; }
+        .summary-card li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 18px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+        .summary-card li strong { color: var(--text); font-weight: 600; }
+        .summary-purple li::before { background: var(--purple); box-shadow: 0 0 8px var(--purple-glow); }
+        .summary-lime li::before { background: var(--lime); box-shadow: 0 0 8px var(--lime-glow); }
+
+        /* ── Revenue breakdown table ── */
+        .rev-table-wrap {
+            padding: 40px;
+            margin-bottom: 48px;
+        }
+        .rev-table-wrap h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+        .rev-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+        .rev-table thead th {
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--glass-border);
+        }
+        .rev-table thead th:last-child,
+        .rev-table tbody td:last-child { text-align: right; }
+        .rev-table thead th:nth-child(2),
+        .rev-table thead th:nth-child(3),
+        .rev-table thead th:nth-child(4),
+        .rev-table tbody td:nth-child(2),
+        .rev-table tbody td:nth-child(3),
+        .rev-table tbody td:nth-child(4) { text-align: right; }
+        .rev-table tbody td {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 16px;
+            border-bottom: 1px solid var(--glass-border);
+            color: var(--text-secondary);
+        }
+        .rev-table tbody td:first-child {
+            font-family: 'Be Vietnam Pro', sans-serif;
+            font-weight: 600;
+            color: var(--text);
+        }
+        .rev-table tbody tr:last-child td { border-bottom: none; }
+        .rev-table tfoot td {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 15px;
+            font-weight: 700;
+            padding: 16px;
+            border-top: 2px solid var(--purple);
+            color: var(--text);
+        }
+        .rev-table tfoot td:first-child {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .caveat-box {
+            margin-top: 24px;
+            padding: 20px 24px;
+            background: rgba(248,113,113,.06);
+            border: 1px solid rgba(248,113,113,.15);
+            border-radius: var(--radius-sm);
+            font-size: 13px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+        .caveat-box strong {
+            color: #fca5a5;
+            font-weight: 600;
+        }
+        .caveat-box .caveat-icon {
+            display: inline-block;
+            margin-right: 6px;
+        }
+
+        /* ── Charts side by side ── */
+        .charts-duo {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 48px;
+        }
+
+        /* ── Footer ── */
+        .footer {
+            padding: 40px 32px;
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-muted);
+            position: relative;
+        }
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--glass-border), transparent);
+        }
+        .footer .brand-text {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            color: var(--purple-light);
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            .kpi-hero-grid { grid-template-columns: 1fr; }
+            .kpi-grid { grid-template-columns: 1fr 1fr; }
+            .campaign-grid { grid-template-columns: 1fr; }
+            .funnel { flex-direction: column; }
+            .funnel-step { border-right: none; border-bottom: 1px solid var(--glass-border); border-radius: 0 !important; }
+            .funnel-step:first-child { border-radius: var(--radius-sm) var(--radius-sm) 0 0 !important; }
+            .funnel-step:last-child { border-radius: 0 0 var(--radius-sm) var(--radius-sm) !important; }
+            .funnel-step .f-rate { right: auto; bottom: -14px; top: auto; transform: none; }
+            .charts-duo { grid-template-columns: 1fr; }
+            .hero-meta { flex-direction: column; }
+            .kpi-hero .kpi-value { font-size: 28px; }
+        }
+
+        /* ── Noise overlay ── */
+        .noise {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: .03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 200px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="noise"></div>
+<div class="bg-glow"></div>
+
+<div class="page-wrapper">
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero">
+    <div class="hero-inner">
+        <div class="hero-badge">
+            <span class="dot"></span>
+            Meta Ads — Havi Riport
+        </div>
+
+        <h1>
+            <span class="brand">Sindler Reptiles</span><br>
+            <span class="accent">Kampány Eredmények</span>
+        </h1>
+        <p class="hero-sub">2026. március 23 – április 22. &nbsp;·&nbsp; Készítette: 2BseenStudio</p>
+
+        <div class="hero-meta">
+            <div class="hero-meta-item glass-card">
+                <div class="hm-label">Időszak</div>
+                <div class="hm-value" style="color: var(--text);">30 nap</div>
+            </div>
+            <div class="hero-meta-item glass-card">
+                <div class="hm-label">Aktív kampány</div>
+                <div class="hm-value" style="color: var(--purple-light);">3 db</div>
+            </div>
+            <div class="hero-meta-item glass-card">
+                <div class="hm-label">Platform</div>
+                <div class="hm-value" style="color: var(--text);">Meta Ads</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════ TOP KPIs ═══════════ -->
+<section class="section">
+    <div class="container">
+        <div class="section-label">Főbb mutatók</div>
+        <div class="section-title">Amit tudnod kell — egy pillantásra</div>
+
+        <div class="kpi-hero-grid">
+            <div class="glass-card kpi-hero revenue">
+                <div class="kpi-icon">💰</div>
+                <div class="kpi-label">Bevétel a hirdetésekből</div>
+                <div class="kpi-value">492 699 Ft</div>
+                <div class="kpi-sub">32 online vásárlás a Shopify webshopban</div>
+            </div>
+            <div class="glass-card kpi-hero roas">
+                <div class="kpi-icon">⚡</div>
+                <div class="kpi-label">ROAS — megtérülés</div>
+                <div class="kpi-value">5.38×</div>
+                <div class="kpi-sub">Minden elköltött 1 Ft → 5,38 Ft bevétel</div>
+            </div>
+        </div>
+
+        <div class="kpi-grid">
+            <div class="glass-card kpi-sm">
+                <div class="kpi-label">Hirdetési költés</div>
+                <div class="kpi-value">91 591 Ft</div>
+                <div class="kpi-sub">~3 053 Ft / nap</div>
+            </div>
+            <div class="glass-card kpi-sm">
+                <div class="kpi-label">Elérés</div>
+                <div class="kpi-value">111 103</div>
+                <div class="kpi-sub">egyedi személy</div>
+            </div>
+            <div class="glass-card kpi-sm">
+                <div class="kpi-label">Megjelenés</div>
+                <div class="kpi-value">297 026</div>
+                <div class="kpi-sub">összes alkalom</div>
+            </div>
+            <div class="glass-card kpi-sm">
+                <div class="kpi-label">Videó megtekintés</div>
+                <div class="kpi-value">44 347</div>
+                <div class="kpi-sub">3 sec+ nézés</div>
+            </div>
+            <div class="glass-card kpi-sm">
+                <div class="kpi-label">Weboldal látogatás</div>
+                <div class="kpi-value">1 197</div>
+                <div class="kpi-sub">76,5 Ft / látogató</div>
+            </div>
+            <div class="glass-card kpi-sm">
+                <div class="kpi-label">Kosárba tette</div>
+                <div class="kpi-value">208</div>
+                <div class="kpi-sub">+58 pénztárig jutott</div>
+            </div>
+            <div class="glass-card kpi-sm">
+                <div class="kpi-label">Interakciók</div>
+                <div class="kpi-value">46 064</div>
+                <div class="kpi-sub">reakció, megtekintés, like</div>
+            </div>
+            <div class="glass-card kpi-sm">
+                <div class="kpi-label">Költség / vásárlás</div>
+                <div class="kpi-value">2 862 Ft</div>
+                <div class="kpi-sub">átl. rendelés: ~15 400 Ft</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════ FUNNEL ═══════════ -->
+<section class="section" style="padding-top: 0;">
+    <div class="container">
+        <div class="glass-card funnel-wrap">
+            <div class="funnel-title">Vásárlási tölcsér — az út a hirdetéstől a pénztárig</div>
+            <div class="funnel">
+                <div class="funnel-step">
+                    <div class="f-num">111 103</div>
+                    <div class="f-label">Elérés</div>
+                    <span class="f-rate">1.08%</span>
+                </div>
+                <div class="funnel-step">
+                    <div class="f-num">1 197</div>
+                    <div class="f-label">Weboldal</div>
+                    <span class="f-rate">17.4%</span>
+                </div>
+                <div class="funnel-step">
+                    <div class="f-num">208</div>
+                    <div class="f-label">Kosár</div>
+                    <span class="f-rate">27.9%</span>
+                </div>
+                <div class="funnel-step">
+                    <div class="f-num">58</div>
+                    <div class="f-label">Pénztár</div>
+                    <span class="f-rate">55.2%</span>
+                </div>
+                <div class="funnel-step">
+                    <div class="f-num">32</div>
+                    <div class="f-label">Vásárlás</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════ REVENUE BREAKDOWN ═══════════ -->
+<section class="section" style="padding-top: 0;">
+    <div class="container">
+        <div class="section-label">Bevétel részletezés</div>
+        <div class="section-title">Honnan jön a 492 699 Ft?</div>
+
+        <div class="glass-card rev-table-wrap">
+            <h3>Vásárlások kampányonként — Meta Pixel adatok</h3>
+            <table class="rev-table">
+                <thead>
+                    <tr>
+                        <th>Kampány</th>
+                        <th>Vásárlás</th>
+                        <th>Bevétel</th>
+                        <th>Átl. kosárérték</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Awareness — Bolt videó</td>
+                        <td>2 db</td>
+                        <td>79 196 Ft</td>
+                        <td style="color: var(--purple-light);">39 598 Ft</td>
+                    </tr>
+                    <tr>
+                        <td>Engagement — Oktató videó</td>
+                        <td>13 db</td>
+                        <td style="color: var(--lime);">251 896 Ft</td>
+                        <td>19 377 Ft</td>
+                    </tr>
+                    <tr>
+                        <td>Sales — Eleségállat</td>
+                        <td>17 db</td>
+                        <td style="color: var(--green);">161 607 Ft</td>
+                        <td>9 506 Ft</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>Összesen</td>
+                        <td style="color: var(--text);">32 db</td>
+                        <td style="color: var(--lime);">492 699 Ft</td>
+                        <td style="color: var(--text);">15 397 Ft</td>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <div class="caveat-box">
+                <span class="caveat-icon">⚠️</span>
+                <strong>Fontos megjegyzés az attribúcióról:</strong> Ez a bevétel a Meta Pixel által mért adat — a Meta ezeket a vásárlásokat a hirdetéseknek tulajdonítja (mert a vásárló korábban látott vagy kattintott egy hirdetést). A valóságban ezek egy része organikus vásárlás is lehetett volna hirdetés nélkül. A reális szám valahol a <strong>70–100%</strong> között van a mért értéknek — de a trend és az irány egyértelmű: a hirdetések hoznak vásárlókat.
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════ CHARTS ═══════════ -->
+<section class="section" style="padding-top: 0;">
+    <div class="container">
+        <div class="glass-card chart-wrap">
+            <h3>Napi költés vs. bevétel</h3>
+            <canvas id="dailyChart" height="100"></canvas>
+        </div>
+        <div class="charts-duo">
+            <div class="glass-card chart-wrap">
+                <h3>Napi elérés</h3>
+                <canvas id="reachChart" height="140"></canvas>
+            </div>
+            <div class="glass-card chart-wrap">
+                <h3>Kampány ROAS összehasonlítás</h3>
+                <canvas id="roasBar" height="140"></canvas>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════ CAMPAIGNS ═══════════ -->
+<section class="section" style="padding-top: 0;">
+    <div class="container">
+        <div class="section-label">Kampányok</div>
+        <div class="section-title">3 kampány, 3 különböző cél</div>
+
+        <div class="campaign-grid">
+            <!-- Awareness -->
+            <div class="glass-card campaign-card">
+                <span class="campaign-tag tag-aw">&#9679; Awareness</span>
+                <h3>Bolt bemutató videó</h3>
+                <p class="c-desc">Az Astor Pet Shop megismertetése — a bolt, a választék, és a személyes élmény bemutatása széles közönségnek.</p>
+                <div class="c-stats">
+                    <div class="c-stat">
+                        <div class="cs-label">Költés</div>
+                        <div class="cs-value">30 359 Ft</div>
+                    </div>
+                    <div class="c-stat">
+                        <div class="cs-label">Elérés</div>
+                        <div class="cs-value purple">87 353</div>
+                    </div>
+                    <div class="c-stat">
+                        <div class="cs-label">Videó megtekintés</div>
+                        <div class="cs-value">33 220</div>
+                    </div>
+                    <div class="c-stat">
+                        <div class="cs-label">Költség / megtekintés</div>
+                        <div class="cs-value green">0,91 Ft</div>
+                    </div>
+                </div>
+                <div class="c-roas-bar">
+                    <div class="roas-label"><span>ROAS</span><span style="color: #60a5fa;">2.61×</span></div>
+                    <div class="roas-track"><div class="roas-fill" style="width: 31%; background: linear-gradient(90deg, #3b82f6, #60a5fa);"></div></div>
+                </div>
+            </div>
+
+            <!-- Engagement -->
+            <div class="glass-card campaign-card" style="border-color: rgba(110,97,255,.3);">
+                <span class="campaign-tag tag-en">&#9733; Engagement — Legjobb</span>
+                <h3>Oktató videó — Kezdő tippek</h3>
+                <p class="c-desc">Bizalom és szakértelem építés oktatási tartalommal. Ez a legjobb konverziós kampány — aki megtanulja, az vásárol.</p>
+                <div class="c-stats">
+                    <div class="c-stat">
+                        <div class="cs-label">Költés</div>
+                        <div class="cs-value">30 268 Ft</div>
+                    </div>
+                    <div class="c-stat">
+                        <div class="cs-label">Bevétel</div>
+                        <div class="cs-value lime">251 896 Ft</div>
+                    </div>
+                    <div class="c-stat">
+                        <div class="cs-label">Vásárlás</div>
+                        <div class="cs-value green">13 db</div>
+                    </div>
+                    <div class="c-stat">
+                        <div class="cs-label">Kosárba tétel</div>
+                        <div class="cs-value">85 db</div>
+                    </div>
+                </div>
+                <div class="c-roas-bar">
+                    <div class="roas-label"><span>ROAS</span><span style="color: var(--lime);">8.32×</span></div>
+                    <div class="roas-track"><div class="roas-fill" style="width: 100%; background: linear-gradient(90deg, var(--purple), var(--lime));"></div></div>
+                </div>
+            </div>
+
+            <!-- Sales -->
+            <div class="glass-card campaign-card">
+                <span class="campaign-tag tag-sa">&#9679; Sales</span>
+                <h3>Eleségállat értékesítés</h3>
+                <p class="c-desc">Direkt vásárlás generálás az eleségállat kategóriában. Stabil, megbízható konverziós motor.</p>
+                <div class="c-stats">
+                    <div class="c-stat">
+                        <div class="cs-label">Költés</div>
+                        <div class="cs-value">30 964 Ft</div>
+                    </div>
+                    <div class="c-stat">
+                        <div class="cs-label">Bevétel</div>
+                        <div class="cs-value green">161 607 Ft</div>
+                    </div>
+                    <div class="c-stat">
+                        <div class="cs-label">Vásárlás</div>
+                        <div class="cs-value green">17 db</div>
+                    </div>
+                    <div class="c-stat">
+                        <div class="cs-label">Kosárba tétel</div>
+                        <div class="cs-value">121 db</div>
+                    </div>
+                </div>
+                <div class="c-roas-bar">
+                    <div class="roas-label"><span>ROAS</span><span style="color: var(--green);">5.22×</span></div>
+                    <div class="roas-track"><div class="roas-fill" style="width: 63%; background: linear-gradient(90deg, #22c55e, #4ade80);"></div></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════ SUMMARY ═══════════ -->
+<section class="section" style="padding-top: 0;">
+    <div class="container">
+        <div class="section-label">Összegzés</div>
+        <div class="section-title">Mi történik, és miért számít</div>
+
+        <div class="glass-card summary-card summary-purple" style="border-color: rgba(110,97,255,.2);">
+            <h3><span style="color: var(--purple-light);">◆</span> Amit a számok mutatnak</h3>
+            <ul>
+                <li><strong>3 aktív kampány fut párhuzamosan</strong> — Awareness (bolt bemutató), Engagement (oktató videó), és Sales (eleségállat). Mindhárom aktív, napi szinten fut és szállít eredményeket.</li>
+                <li><strong>492 699 Ft bevétel 91 591 Ft költésből</strong> — ez 5.38× ROAS. Minden befektetett 1 forint 5,38 Ft-ot termel vissza a webshopban. Ez jó szám.</li>
+                <li><strong>111 103 egyedi embert értünk el</strong> — ennyi ember látta a Sindler / Astor hirdetéseit az elmúlt 30 napban. A videókat 44 347-en nézték meg.</li>
+                <li><strong>Az oktató videó kampány a sztár</strong> — 8.32× ROAS. Ez az a tartalom, ami bizalmat épít és vásárlásra ösztönöz. Ide érdemes több pénzt tenni.</li>
+                <li><strong>Az eleségállat kampány stabilan szállít</strong> — 17 vásárlás, 5.22× ROAS. Ez a „munkagép" kampány, folyamatos bevételt hoz.</li>
+                <li><strong>208 ember tett terméket a kosárba</strong> — de csak 32-en vásároltak. A kosár-konverzió javítható remarketing hirdetésekkel és kosár-elhagyó emailekkel.</li>
+            </ul>
+        </div>
+
+        <div class="glass-card summary-card summary-lime" style="border-color: rgba(242,255,97,.15);">
+            <h3><span style="color: var(--lime);">▲</span> Nyári szezonra felkészülés — javaslatok</h3>
+            <ul>
+                <li><strong>Oktató tartalom skálázása</strong> — több ilyen típusú videó kell (pl. „Hogyan rendezd be az első terrárimod", „5 hiba amit minden kezdő elkövet"). Ez hozza a legtöbb vásárlást.</li>
+                <li><strong>Remarketing bevezetése</strong> — a 208 kosárba tevő + 1 197 weboldal látogató visszahozható célzott hirdetésekkel. Ez a legolcsóbb konverzió.</li>
+                <li><strong>Nyári akciók / szezonális ajánlatok</strong> — nyári csomag, kezdő szett akció, terráriumhoz való kiegészítők. Ezt a Sales kampány struktúrájába be lehet építeni.</li>
+                <li><strong>Közösségépítés erősítése</strong> — a 46 064 interakció azt mutatja, hogy van érdeklődés. Organikus posztokkal is meg kell támogatni a fizetett kampányokat.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<div class="footer">
+    <div class="container">
+        Riport készítette: <span class="brand-text">2BseenStudio</span> — Petlyánszki Bence<br>
+        Adatok forrása: Meta Marketing API &nbsp;·&nbsp; Generálva: 2026. április 22.
+    </div>
+</div>
+
+</div><!-- /page-wrapper -->
+
+<script>
+const dates = ["03.23","03.24","03.25","03.26","03.27","03.28","03.29","03.30","03.31","04.01","04.02","04.03","04.04","04.05","04.06","04.07","04.08","04.09","04.10","04.11","04.12","04.13","04.14","04.15","04.16"];
+const spends = [3015,3009,2909,2918,2817,3124,3169,3086,3165,2876,2798,2983,2889,3097,3306,3073,2853,2722,2724,3180,3498,2871,2784,2947,2923];
+const revenue = [68004,0,22970,42262,0,0,15863,59830,74980,0,0,8060,0,17900,0,9464,23085,8050,9160,16320,0,0,8260,4360,0];
+const reaches = [7422,6769,6900,7293,7389,7856,7890,7680,7855,8532,7410,8453,8221,9095,9689,8795,8544,7515,7978,9324,12684,10822,8274,7959,7723];
+
+Chart.defaults.color = '#7a7494';
+Chart.defaults.borderColor = 'rgba(255,255,255,.06)';
+Chart.defaults.font.family = "'Be Vietnam Pro', sans-serif";
+
+// ── Daily spend vs revenue ──
+new Chart(document.getElementById('dailyChart'), {
+    type: 'bar',
+    data: {
+        labels: dates,
+        datasets: [
+            {
+                label: 'Bevétel (Ft)',
+                data: revenue,
+                backgroundColor: ctx => {
+                    const g = ctx.chart.ctx.createLinearGradient(0, 0, 0, 300);
+                    g.addColorStop(0, 'rgba(242,255,97,.65)');
+                    g.addColorStop(1, 'rgba(110,97,255,.25)');
+                    return g;
+                },
+                borderColor: 'rgba(242,255,97,.6)',
+                borderWidth: 1,
+                borderRadius: 6,
+                order: 1,
+            },
+            {
+                label: 'Költés (Ft)',
+                data: spends,
+                type: 'line',
+                borderColor: '#6e61ff',
+                backgroundColor: 'rgba(110,97,255,.08)',
+                borderWidth: 2.5,
+                pointRadius: 0,
+                pointHoverRadius: 5,
+                pointHoverBackgroundColor: '#6e61ff',
+                fill: true,
+                tension: .4,
+                order: 0,
+            }
+        ]
+    },
+    options: {
+        responsive: true,
+        interaction: { intersect: false, mode: 'index' },
+        plugins: {
+            legend: { position: 'top', labels: { usePointStyle: true, pointStyle: 'circle', padding: 20, font: { size: 12 } } },
+            tooltip: {
+                backgroundColor: 'rgba(15,23,40,.95)',
+                borderColor: 'rgba(110,97,255,.3)',
+                borderWidth: 1,
+                titleFont: { family: "'IBM Plex Mono', monospace", weight: '600' },
+                bodyFont: { family: "'IBM Plex Mono', monospace" },
+                padding: 14,
+                cornerRadius: 12,
+                callbacks: { label: ctx => `${ctx.dataset.label}: ${ctx.parsed.y.toLocaleString('hu-HU')} Ft` }
+            }
+        },
+        scales: {
+            y: { beginAtZero: true, ticks: { callback: v => (v/1000).toFixed(0) + 'e', font: { family: "'IBM Plex Mono', monospace", size: 11 } }, grid: { color: 'rgba(255,255,255,.04)' } },
+            x: { grid: { display: false }, ticks: { font: { size: 10 } } }
+        }
+    }
+});
+
+// ── Reach chart ──
+new Chart(document.getElementById('reachChart'), {
+    type: 'line',
+    data: {
+        labels: dates,
+        datasets: [{
+            label: 'Elérés',
+            data: reaches,
+            borderColor: '#6e61ff',
+            backgroundColor: ctx => {
+                const g = ctx.chart.ctx.createLinearGradient(0, 0, 0, 280);
+                g.addColorStop(0, 'rgba(110,97,255,.2)');
+                g.addColorStop(1, 'rgba(110,97,255,0)');
+                return g;
+            },
+            borderWidth: 2.5,
+            pointRadius: 0,
+            pointHoverRadius: 5,
+            pointHoverBackgroundColor: '#dad6ff',
+            fill: true,
+            tension: .4,
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: { display: false },
+            tooltip: {
+                backgroundColor: 'rgba(15,23,40,.95)',
+                borderColor: 'rgba(110,97,255,.3)',
+                borderWidth: 1,
+                padding: 14,
+                cornerRadius: 12,
+                bodyFont: { family: "'IBM Plex Mono', monospace" },
+                callbacks: { label: ctx => `${ctx.parsed.y.toLocaleString('hu-HU')} fő` }
+            }
+        },
+        scales: {
+            y: { beginAtZero: false, ticks: { callback: v => (v/1000).toFixed(1) + 'e', font: { family: "'IBM Plex Mono', monospace", size: 11 } }, grid: { color: 'rgba(255,255,255,.04)' } },
+            x: { grid: { display: false }, ticks: { font: { size: 10 } } }
+        }
+    }
+});
+
+// ── ROAS comparison ──
+new Chart(document.getElementById('roasBar'), {
+    type: 'bar',
+    data: {
+        labels: ['Awareness', 'Engagement', 'Sales'],
+        datasets: [{
+            label: 'ROAS',
+            data: [2.61, 8.32, 5.22],
+            backgroundColor: [
+                'rgba(59,130,246,.5)',
+                ctx => {
+                    const g = ctx.chart.ctx.createLinearGradient(0, 0, 300, 0);
+                    g.addColorStop(0, 'rgba(110,97,255,.6)');
+                    g.addColorStop(1, 'rgba(242,255,97,.5)');
+                    return g;
+                },
+                'rgba(74,222,128,.5)',
+            ],
+            borderColor: ['#3b82f6', '#6e61ff', '#4ade80'],
+            borderWidth: 1.5,
+            borderRadius: 8,
+        }]
+    },
+    options: {
+        responsive: true,
+        indexAxis: 'y',
+        plugins: {
+            legend: { display: false },
+            tooltip: {
+                backgroundColor: 'rgba(15,23,40,.95)',
+                borderColor: 'rgba(110,97,255,.3)',
+                borderWidth: 1,
+                padding: 14,
+                cornerRadius: 12,
+                bodyFont: { family: "'IBM Plex Mono', monospace" },
+                callbacks: { label: ctx => `ROAS: ${ctx.parsed.x}×` }
+            }
+        },
+        scales: {
+            x: { beginAtZero: true, ticks: { callback: v => v + '×', font: { family: "'IBM Plex Mono', monospace", size: 12 } }, grid: { color: 'rgba(255,255,255,.04)' } },
+            y: { grid: { display: false }, ticks: { font: { family: "'Poppins', sans-serif", weight: '600', size: 13 } } }
+        }
+    }
+});
+</script>
+
+</body>
+</html>
