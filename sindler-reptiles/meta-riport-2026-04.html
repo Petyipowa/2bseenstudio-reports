@@ -515,68 +515,123 @@
         .summary-purple li::before { background: var(--purple); box-shadow: 0 0 8px var(--purple-glow); }
         .summary-lime li::before { background: var(--lime); box-shadow: 0 0 8px var(--lime-glow); }
 
-        /* ── Revenue breakdown table ── */
-        .rev-table-wrap {
+        /* ── Revenue breakdown ── */
+        .rev-section {
             padding: 40px;
             margin-bottom: 48px;
         }
-        .rev-table-wrap h3 {
+        .rev-section h3 {
             font-family: 'Poppins', sans-serif;
             font-size: 18px;
             font-weight: 700;
             margin-bottom: 24px;
         }
-        .rev-table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
+        .rev-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-bottom: 20px;
         }
-        .rev-table thead th {
-            font-size: 10px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text-muted);
-            padding: 12px 16px;
-            text-align: left;
-            border-bottom: 1px solid var(--glass-border);
+        .rev-card {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-sm);
+            padding: 24px;
+            position: relative;
+            overflow: hidden;
         }
-        .rev-table thead th:last-child,
-        .rev-table tbody td:last-child { text-align: right; }
-        .rev-table thead th:nth-child(2),
-        .rev-table thead th:nth-child(3),
-        .rev-table thead th:nth-child(4),
-        .rev-table tbody td:nth-child(2),
-        .rev-table tbody td:nth-child(3),
-        .rev-table tbody td:nth-child(4) { text-align: right; }
-        .rev-table tbody td {
-            font-family: 'IBM Plex Mono', monospace;
-            font-size: 14px;
+        .rev-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            border-radius: 3px 3px 0 0;
+        }
+        .rev-card.rc-aw::before { background: linear-gradient(90deg, #3b82f6, #60a5fa); }
+        .rev-card.rc-en::before { background: linear-gradient(90deg, var(--purple), var(--lime)); }
+        .rev-card.rc-sa::before { background: linear-gradient(90deg, #22c55e, #4ade80); }
+        .rev-card .rc-name {
+            font-size: 12px;
             font-weight: 600;
-            padding: 16px;
-            border-bottom: 1px solid var(--glass-border);
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            margin-bottom: 16px;
+        }
+        .rev-card .rc-revenue {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        .rev-card .rc-detail {
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+        .rev-card .rc-detail span {
+            font-family: 'IBM Plex Mono', monospace;
+            font-weight: 600;
             color: var(--text-secondary);
         }
-        .rev-table tbody td:first-child {
-            font-family: 'Be Vietnam Pro', sans-serif;
+        .rev-card .rc-stats {
+            display: flex;
+            gap: 20px;
+            margin-top: 14px;
+            padding-top: 14px;
+            border-top: 1px solid var(--glass-border);
+        }
+        .rev-card .rc-stat-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: .4px;
+            color: var(--text-muted);
             font-weight: 600;
-            color: var(--text);
         }
-        .rev-table tbody tr:last-child td { border-bottom: none; }
-        .rev-table tfoot td {
+        .rev-card .rc-stat-val {
             font-family: 'IBM Plex Mono', monospace;
-            font-size: 15px;
+            font-size: 14px;
             font-weight: 700;
-            padding: 16px;
-            border-top: 2px solid var(--purple);
-            color: var(--text);
+            margin-top: 2px;
         }
-        .rev-table tfoot td:first-child {
+
+        .rev-total {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 28px;
+            background: linear-gradient(135deg, rgba(110,97,255,.08) 0%, rgba(242,255,97,.04) 100%);
+            border: 1px solid rgba(110,97,255,.2);
+            border-radius: var(--radius-sm);
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .rev-total .rt-label {
             font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text-secondary);
+        }
+        .rev-total .rt-nums {
+            display: flex;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+        .rev-total .rt-item-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: .5px;
+            color: var(--text-muted);
+            font-weight: 600;
+        }
+        .rev-total .rt-item-val {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 20px;
+            font-weight: 700;
+            margin-top: 2px;
         }
 
         .caveat-box {
-            margin-top: 24px;
             padding: 20px 24px;
             background: rgba(248,113,113,.06);
             border: 1px solid rgba(248,113,113,.15);
@@ -588,10 +643,6 @@
         .caveat-box strong {
             color: #fca5a5;
             font-weight: 600;
-        }
-        .caveat-box .caveat-icon {
-            display: inline-block;
-            margin-right: 6px;
         }
 
         /* ── Charts side by side ── */
@@ -625,17 +676,38 @@
 
         /* ── Responsive ── */
         @media (max-width: 768px) {
+            .container { padding: 0 16px; }
+            .hero-inner { padding: 0 16px; }
+            .hero { padding: 40px 0 32px; }
             .kpi-hero-grid { grid-template-columns: 1fr; }
             .kpi-grid { grid-template-columns: 1fr 1fr; }
+            .kpi-sm { padding: 16px; }
+            .kpi-sm .kpi-value { font-size: 20px; }
             .campaign-grid { grid-template-columns: 1fr; }
             .funnel { flex-direction: column; }
-            .funnel-step { border-right: none; border-bottom: 1px solid var(--glass-border); border-radius: 0 !important; }
+            .funnel-step { border-right: none; border-bottom: 1px solid var(--glass-border); border-radius: 0 !important; padding: 20px 12px; }
             .funnel-step:first-child { border-radius: var(--radius-sm) var(--radius-sm) 0 0 !important; }
             .funnel-step:last-child { border-radius: 0 0 var(--radius-sm) var(--radius-sm) !important; }
-            .funnel-step .f-rate { right: auto; bottom: -14px; top: auto; transform: none; }
+            .funnel-step .f-rate { right: 16px; bottom: auto; top: 50%; transform: translateY(-50%); }
+            .funnel-step .f-num { font-size: 22px; }
+            .funnel-wrap { padding: 24px; }
             .charts-duo { grid-template-columns: 1fr; }
+            .chart-wrap { padding: 20px; }
             .hero-meta { flex-direction: column; }
+            .hero-meta-item { min-width: unset; padding: 12px 16px; }
+            .kpi-hero { padding: 24px; }
             .kpi-hero .kpi-value { font-size: 28px; }
+            .rev-section { padding: 24px; }
+            .rev-cards { grid-template-columns: 1fr; }
+            .rev-card .rc-revenue { font-size: 22px; }
+            .rev-total { flex-direction: column; align-items: flex-start; padding: 20px; }
+            .rev-total .rt-nums { gap: 20px; }
+            .rev-total .rt-item-val { font-size: 17px; }
+            .campaign-card { padding: 24px; }
+            .c-stat .cs-value { font-size: 17px; }
+            .summary-card { padding: 24px; }
+            .summary-card li { font-size: 13px; }
+            .section-title { font-size: 22px; margin-bottom: 24px; }
         }
 
         /* ── Noise overlay ── */
@@ -796,50 +868,79 @@
         <div class="section-label">Bevétel részletezés</div>
         <div class="section-title">Honnan jön a 492 699 Ft?</div>
 
-        <div class="glass-card rev-table-wrap">
+        <div class="glass-card rev-section">
             <h3>Vásárlások kampányonként — Meta Pixel adatok</h3>
-            <table class="rev-table">
-                <thead>
-                    <tr>
-                        <th>Kampány</th>
-                        <th>Vásárlás</th>
-                        <th>Bevétel</th>
-                        <th>Átl. kosárérték</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Awareness — Bolt videó</td>
-                        <td>2 db</td>
-                        <td>79 196 Ft</td>
-                        <td style="color: var(--purple-light);">39 598 Ft</td>
-                    </tr>
-                    <tr>
-                        <td>Engagement — Oktató videó</td>
-                        <td>13 db</td>
-                        <td style="color: var(--lime);">251 896 Ft</td>
-                        <td>19 377 Ft</td>
-                    </tr>
-                    <tr>
-                        <td>Sales — Eleségállat</td>
-                        <td>17 db</td>
-                        <td style="color: var(--green);">161 607 Ft</td>
-                        <td>9 506 Ft</td>
-                    </tr>
-                </tbody>
-                <tfoot>
-                    <tr>
-                        <td>Összesen</td>
-                        <td style="color: var(--text);">32 db</td>
-                        <td style="color: var(--lime);">492 699 Ft</td>
-                        <td style="color: var(--text);">15 397 Ft</td>
-                    </tr>
-                </tfoot>
-            </table>
+
+            <div class="rev-cards">
+                <div class="rev-card rc-aw">
+                    <div class="rc-name">Awareness — Bolt videó</div>
+                    <div class="rc-revenue" style="color: #60a5fa;">79 196 Ft</div>
+                    <div class="rc-detail">bevétel <span>2</span> vásárlásból</div>
+                    <div class="rc-stats">
+                        <div>
+                            <div class="rc-stat-label">Átl. kosár</div>
+                            <div class="rc-stat-val" style="color: #60a5fa;">39 598 Ft</div>
+                        </div>
+                        <div>
+                            <div class="rc-stat-label">Költés</div>
+                            <div class="rc-stat-val">30 359 Ft</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rev-card rc-en">
+                    <div class="rc-name">Engagement — Oktató videó</div>
+                    <div class="rc-revenue" style="color: var(--lime);">251 896 Ft</div>
+                    <div class="rc-detail">bevétel <span>13</span> vásárlásból</div>
+                    <div class="rc-stats">
+                        <div>
+                            <div class="rc-stat-label">Átl. kosár</div>
+                            <div class="rc-stat-val" style="color: var(--purple-light);">19 377 Ft</div>
+                        </div>
+                        <div>
+                            <div class="rc-stat-label">Költés</div>
+                            <div class="rc-stat-val">30 268 Ft</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rev-card rc-sa">
+                    <div class="rc-name">Sales — Eleségállat</div>
+                    <div class="rc-revenue" style="color: var(--green);">161 607 Ft</div>
+                    <div class="rc-detail">bevétel <span>17</span> vásárlásból</div>
+                    <div class="rc-stats">
+                        <div>
+                            <div class="rc-stat-label">Átl. kosár</div>
+                            <div class="rc-stat-val" style="color: var(--green);">9 506 Ft</div>
+                        </div>
+                        <div>
+                            <div class="rc-stat-label">Költés</div>
+                            <div class="rc-stat-val">30 964 Ft</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rev-total">
+                <div class="rt-label">Összesen</div>
+                <div class="rt-nums">
+                    <div>
+                        <div class="rt-item-label">Vásárlás</div>
+                        <div class="rt-item-val" style="color: var(--text);">32 db</div>
+                    </div>
+                    <div>
+                        <div class="rt-item-label">Bevétel</div>
+                        <div class="rt-item-val" style="color: var(--lime);">492 699 Ft</div>
+                    </div>
+                    <div>
+                        <div class="rt-item-label">Átl. kosárérték</div>
+                        <div class="rt-item-val" style="color: var(--purple-light);">15 397 Ft</div>
+                    </div>
+                </div>
+            </div>
 
             <div class="caveat-box">
-                <span class="caveat-icon">⚠️</span>
-                <strong>Fontos megjegyzés az attribúcióról:</strong> Ez a bevétel a Meta Pixel által mért adat — a Meta ezeket a vásárlásokat a hirdetéseknek tulajdonítja (mert a vásárló korábban látott vagy kattintott egy hirdetést). A valóságban ezek egy része organikus vásárlás is lehetett volna hirdetés nélkül. A reális szám valahol a <strong>70–100%</strong> között van a mért értéknek — de a trend és az irány egyértelmű: a hirdetések hoznak vásárlókat.
+                <strong>⚠️ Fontos az attribúcióról:</strong> Ez a bevétel a Meta Pixel által mért adat — a Meta ezeket a vásárlásokat a hirdetéseknek tulajdonítja (mert a vásárló korábban látott vagy kattintott egy hirdetést). A valóságban ezek egy része organikus vásárlás is lehetett volna. A reális szám valahol a <strong>70–100%</strong> között van — de a trend egyértelmű: a hirdetések hoznak vásárlókat.
             </div>
         </div>
     </div>
